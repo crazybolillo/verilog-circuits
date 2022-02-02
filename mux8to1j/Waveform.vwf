@@ -1,16 +1,16 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off mux4to1esc -c mux4to1esc --vector_source="/home/anton/QuartusProjects/mux4to1esc/Waveform.vwf" --testbench_file="/home/anton/QuartusProjects/mux4to1esc/simulation/qsim/Waveform.vwf.vt"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off mux4to1esc -c mux4to1esc --vector_source="/home/anton/QuartusProjects/mux4to1esc/Waveform.vwf" --testbench_file="/home/anton/QuartusProjects/mux4to1esc/simulation/qsim/Waveform.vwf.vt"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="/home/anton/QuartusProjects/mux4to1esc/simulation/qsim/" mux4to1esc -c mux4to1esc</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="/home/anton/QuartusProjects/mux4to1esc/simulation/qsim/" mux4to1esc -c mux4to1esc</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off mux8to1j -c mux8to1j --vector_source="/home/anton/QuartusProjects/mux8to1j/Waveform.vwf" --testbench_file="/home/anton/QuartusProjects/mux8to1j/simulation/qsim/Waveform.vwf.vt"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off mux8to1j -c mux8to1j --vector_source="/home/anton/QuartusProjects/mux8to1j/Waveform.vwf" --testbench_file="/home/anton/QuartusProjects/mux8to1j/simulation/qsim/Waveform.vwf.vt"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="/home/anton/QuartusProjects/mux8to1j/simulation/qsim/" mux8to1j -c mux8to1j</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="/home/anton/QuartusProjects/mux8to1j/simulation/qsim/" mux8to1j -c mux8to1j</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
-vlog -work work mux4to1esc.vo
+vlog -work work mux8to1j.vo
 vlog -work work Waveform.vwf.vt
-vsim -c -t 1ps -L maxii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.mux4to1esc_vlg_vec_tst
-vcd file -direction mux4to1esc.msim.vcd
-vcd add -internal mux4to1esc_vlg_vec_tst/*
-vcd add -internal mux4to1esc_vlg_vec_tst/i1/*
+vsim -c -t 1ps -L maxii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.mux8to1j_vlg_vec_tst
+vcd file -direction mux8to1j.msim.vcd
+vcd add -internal mux8to1j_vlg_vec_tst/*
+vcd add -internal mux8to1j_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -20,16 +20,15 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
-vlog -work work mux4to1esc.vo
+vlog -work work mux8to1j.vo
 vlog -work work Waveform.vwf.vt
-vsim -novopt -c -t 1ps -L maxii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.mux4to1esc_vlg_vec_tst
-vcd file -direction mux4to1esc.msim.vcd
-vcd add -internal mux4to1esc_vlg_vec_tst/*
-vcd add -internal mux4to1esc_vlg_vec_tst/i1/*
+vsim -novopt -c -t 1ps -L maxii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.mux8to1j_vlg_vec_tst
+vcd file -direction mux8to1j.msim.vcd
+vcd add -internal mux8to1j_vlg_vec_tst/*
+vcd add -internal mux8to1j_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -39,7 +38,6 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-
 </modelsim_script_timing>
 <hdl_lang>verilog</hdl_lang>
 </simulation_settings>*/
@@ -78,7 +76,7 @@ HEADER
 	GRID_DUTY_CYCLE = 50;
 }
 
-SIGNAL("a")
+SIGNAL("in0")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -88,7 +86,7 @@ SIGNAL("a")
 	PARENT = "";
 }
 
-SIGNAL("b")
+SIGNAL("in1")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -98,7 +96,7 @@ SIGNAL("b")
 	PARENT = "";
 }
 
-SIGNAL("c")
+SIGNAL("in2")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -108,7 +106,47 @@ SIGNAL("c")
 	PARENT = "";
 }
 
-SIGNAL("d")
+SIGNAL("in3")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("in4")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("in5")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("in6")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("in7")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -132,10 +170,20 @@ SIGNAL("sel")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = BUS;
-	WIDTH = 2;
+	WIDTH = 3;
 	LSB_INDEX = 0;
 	DIRECTION = INPUT;
 	PARENT = "";
+}
+
+SIGNAL("sel[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "sel";
 }
 
 SIGNAL("sel[1]")
@@ -158,7 +206,35 @@ SIGNAL("sel[0]")
 	PARENT = "sel";
 }
 
-TRANSITION_LIST("a")
+TRANSITION_LIST("in0")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 500;
+			LEVEL 0 FOR 1.0;
+			LEVEL 1 FOR 1.0;
+		}
+	}
+}
+
+TRANSITION_LIST("in1")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 250;
+			LEVEL 0 FOR 2.0;
+			LEVEL 1 FOR 2.0;
+		}
+	}
+}
+
+TRANSITION_LIST("in2")
 {
 	NODE
 	{
@@ -172,7 +248,7 @@ TRANSITION_LIST("a")
 	}
 }
 
-TRANSITION_LIST("b")
+TRANSITION_LIST("in3")
 {
 	NODE
 	{
@@ -186,7 +262,7 @@ TRANSITION_LIST("b")
 	}
 }
 
-TRANSITION_LIST("c")
+TRANSITION_LIST("in4")
 {
 	NODE
 	{
@@ -200,7 +276,7 @@ TRANSITION_LIST("c")
 	}
 }
 
-TRANSITION_LIST("d")
+TRANSITION_LIST("in5")
 {
 	NODE
 	{
@@ -215,12 +291,50 @@ TRANSITION_LIST("d")
 	}
 }
 
+TRANSITION_LIST("in6")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 500;
+			LEVEL 0 FOR 1.0;
+			LEVEL 1 FOR 1.0;
+		}
+	}
+}
+
+TRANSITION_LIST("in7")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 250;
+			LEVEL 0 FOR 2.0;
+			LEVEL 1 FOR 2.0;
+		}
+	}
+}
+
 TRANSITION_LIST("out")
 {
 	NODE
 	{
 		REPEAT = 1;
 		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("sel[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 520.0;
+		LEVEL 1 FOR 480.0;
 	}
 }
 
@@ -232,10 +346,11 @@ TRANSITION_LIST("sel[1]")
 		NODE
 		{
 			REPEAT = 1;
-			LEVEL 0 FOR 480.0;
-			LEVEL 1 FOR 480.0;
+			LEVEL 0 FOR 260.0;
+			LEVEL 1 FOR 260.0;
 		}
-		LEVEL 0 FOR 40.0;
+		LEVEL 0 FOR 260.0;
+		LEVEL 1 FOR 220.0;
 	}
 }
 
@@ -246,17 +361,18 @@ TRANSITION_LIST("sel[0]")
 		REPEAT = 1;
 		NODE
 		{
-			REPEAT = 2;
-			LEVEL 0 FOR 240.0;
-			LEVEL 1 FOR 240.0;
+			REPEAT = 3;
+			LEVEL 0 FOR 130.0;
+			LEVEL 1 FOR 130.0;
 		}
-		LEVEL 0 FOR 40.0;
+		LEVEL 0 FOR 130.0;
+		LEVEL 1 FOR 90.0;
 	}
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "a";
+	CHANNEL = "in0";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 0;
@@ -265,7 +381,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "b";
+	CHANNEL = "in1";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 1;
@@ -274,7 +390,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "c";
+	CHANNEL = "in2";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 2;
@@ -283,7 +399,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "d";
+	CHANNEL = "in3";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 3;
@@ -292,7 +408,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out";
+	CHANNEL = "in4";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 4;
@@ -301,12 +417,58 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
+	CHANNEL = "in5";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 5;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "in6";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 6;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "in7";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 7;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "out";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 8;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
 	CHANNEL = "sel";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
-	TREE_INDEX = 5;
+	TREE_INDEX = 9;
 	TREE_LEVEL = 0;
-	CHILDREN = 6, 7;
+	CHILDREN = 10, 11, 12;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "sel[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 10;
+	TREE_LEVEL = 1;
+	PARENT = 9;
 }
 
 DISPLAY_LINE
@@ -314,9 +476,9 @@ DISPLAY_LINE
 	CHANNEL = "sel[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
-	TREE_INDEX = 6;
+	TREE_INDEX = 11;
 	TREE_LEVEL = 1;
-	PARENT = 5;
+	PARENT = 9;
 }
 
 DISPLAY_LINE
@@ -324,9 +486,9 @@ DISPLAY_LINE
 	CHANNEL = "sel[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
-	TREE_INDEX = 7;
+	TREE_INDEX = 12;
 	TREE_LEVEL = 1;
-	PARENT = 5;
+	PARENT = 9;
 }
 
 TIME_BAR
