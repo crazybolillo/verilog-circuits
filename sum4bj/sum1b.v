@@ -4,6 +4,6 @@
 */
 
 module sum1b(input a, b, cin, output cout, out);
-	assign cout = (b & cin) | (a & !b & cin) | (a & b & !cin);
-	xor(out, a, b, cin);
+	assign out = (a ^ b) ^ cin;
+	assign cout = ((a ^ b) & cin) | (a & b);
 endmodule
