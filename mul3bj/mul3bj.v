@@ -1,5 +1,6 @@
 /*
- * Antonio Aguilar
+ * Equipo 1
+ * Seccion D04
  * Multiplicador de 3 bits jerarquico
 */
 
