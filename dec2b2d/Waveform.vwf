@@ -21,6 +21,12 @@ after 2500 simTimestamp
 run -all
 quit -f
 
+
+
+
+
+
+
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
@@ -39,6 +45,12 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
+
+
+
+
+
+
 
 </modelsim_script_timing>
 <hdl_lang>verilog</hdl_lang>
@@ -126,66 +138,6 @@ SIGNAL("dec[0]")
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
 	PARENT = "dec";
-}
-
-SIGNAL("rst")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "";
-}
-
-SIGNAL("uni")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 4;
-	LSB_INDEX = 0;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("uni[3]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "uni";
-}
-
-SIGNAL("uni[2]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "uni";
-}
-
-SIGNAL("uni[1]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "uni";
-}
-
-SIGNAL("uni[0]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "uni";
 }
 
 SIGNAL("dig")
@@ -298,6 +250,66 @@ SIGNAL("dig[0]")
 	PARENT = "dig";
 }
 
+SIGNAL("rst")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("uni")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 4;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("uni[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "uni";
+}
+
+SIGNAL("uni[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "uni";
+}
+
+SIGNAL("uni[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "uni";
+}
+
+SIGNAL("uni[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "uni";
+}
+
 TRANSITION_LIST("dec[3]")
 {
 	NODE
@@ -331,6 +343,104 @@ TRANSITION_LIST("dec[0]")
 	{
 		REPEAT = 1;
 		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("dig[9]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 180.0;
+		LEVEL 1 FOR 90.0;
+		LEVEL 0 FOR 730.0;
+	}
+}
+
+TRANSITION_LIST("dig[8]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("dig[7]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 420.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 480.0;
+	}
+}
+
+TRANSITION_LIST("dig[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("dig[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("dig[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("dig[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 350.0;
+		LEVEL 1 FOR 70.0;
+		LEVEL 0 FOR 580.0;
+	}
+}
+
+TRANSITION_LIST("dig[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("dig[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 90.0;
+		LEVEL 1 FOR 90.0;
+		LEVEL 0 FOR 820.0;
+	}
+}
+
+TRANSITION_LIST("dig[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -379,102 +489,6 @@ TRANSITION_LIST("uni[0]")
 	}
 }
 
-TRANSITION_LIST("dig[9]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("dig[8]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("dig[7]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("dig[6]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("dig[5]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("dig[4]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("dig[3]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("dig[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 140.0;
-		LEVEL 1 FOR 110.0;
-		LEVEL 0 FOR 750.0;
-	}
-}
-
-TRANSITION_LIST("dig[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 190.0;
-		LEVEL 0 FOR 750.0;
-	}
-}
-
-TRANSITION_LIST("dig[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 860.0;
-	}
-}
-
 DISPLAY_LINE
 {
 	CHANNEL = "rst";
@@ -488,7 +502,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 1;
 	TREE_LEVEL = 0;
 	CHILDREN = 2, 3, 4, 5, 6, 7, 8, 9, 10, 11;
@@ -498,7 +512,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig[9]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 2;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -508,7 +522,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig[8]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 3;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -518,7 +532,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig[7]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 4;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -528,7 +542,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig[6]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 5;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -538,7 +552,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig[5]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 6;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -548,7 +562,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig[4]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 7;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -558,7 +572,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 8;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -568,7 +582,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 9;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -578,7 +592,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 10;
 	TREE_LEVEL = 1;
 	PARENT = 1;
@@ -588,7 +602,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "dig[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 11;
 	TREE_LEVEL = 1;
 	PARENT = 1;
