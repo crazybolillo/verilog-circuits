@@ -1,0 +1,22 @@
+{
+	"system" : {
+		"platform" : "linux64",
+		"os_name" : "Debian GNU/Linux",
+		"os_version" : ""
+	},
+	"error" : {
+		"executable" : "quartus",
+		"comment" : "not_applicable",
+		"error_message" : "glyph_itr == end_glyph_itr",
+		"source_file" : "/quartus/edt/wedtq/wedtq_count_value_dlg.cpp",
+		"line" : "82",
+		"stack_trace" : "\t0x7f65dd6e5e44: edt_wedtq + 0x8be44 (_ZN21WEDTQ_COUNT_VALUE_DLG11set_detailsEv + 0xa4)\n\t0x7f65dd6e6065: edt_wedtq + 0x8c065 (_ZN21WEDTQ_COUNT_VALUE_DLGC2EP7QWidget + 0xa9)\n\t0x7f65dd6f920c: edt_wedtq + 0x9f20c (_ZN19WEDTQ_WAVEFORM_VIEW30update_overwrite_counter_valueEv + 0x6e)\n\t0x7f65dd6f93de: edt_wedtq + 0x9f3de (_ZN15WEDTQ_FRAME_WND21on_count_value_actionEv + 0x10)\n\t0x7f65dd6fc8ed: edt_wedtq + 0xa28ed (_ZN15WEDTQ_FRAME_WND18qt_static_metacallEP7QObjectN11QMetaObject4CallEiPPv + 0x143)\n\t0x7f664aef4788: QtCore.so.4 + 0x1cd788 (_ZN11QMetaObject8activateEP7QObjectPKS_iPPv + 0x488)\n\t0x7f663399a3d2: QtGui.so.4 + 0x1fd3d2 (_ZN7QAction9triggeredEb + 0x32)\n\t0x7f663399b780: QtGui.so.4 + 0x1fe780 (_ZN7QAction8activateENS_11ActionEventE + 0xb0)\n\t0x7f6633dcf994: QtGui.so.4 + 0x632994\n\t0x7f6633dcfc2b: QtGui.so.4 + 0x632c2b (_ZN15QAbstractButton17mouseReleaseEventEP11QMouseEvent + 0x7b)\n\t0x7f6633ea42ea: QtGui.so.4 + 0x7072ea (_ZN11QToolButton17mouseReleaseEventEP11QMouseEvent + 0xa)\n\t0x7f6633a02f11: QtGui.so.4 + 0x265f11 (_ZN7QWidget5eventEP6QEvent + 0x451)\n\t0x7f6633dcedff: QtGui.so.4 + 0x631dff (_ZN15QAbstractButton5eventEP6QEvent + 0x3f)\n\t0x7f6633ea6dfd: QtGui.so.4 + 0x709dfd (_ZN11QToolButton5eventEP6QEvent + 0x3d)\n\t0x7f66339a184f: QtGui.so.4 + 0x20484f (_ZN19QApplicationPrivate13notify_helperEP7QObjectP6QEvent + 0xaf)\n\t0x7f66339a80d3: QtGui.so.4 + 0x20b0d3 (_ZN12QApplication6notifyEP7QObjectP6QEvent + 0x3b3)\n\t0x7f664aedca84: QtCore.so.4 + 0x1b5a84 (_ZN16QCoreApplication14notifyInternalEP7QObjectP6QEvent + 0x84)\n\t0x7f66339a4ac5: QtGui.so.4 + 0x207ac5 (_ZN19QApplicationPrivate14sendMouseEventEP7QWidgetP11QMouseEventS1_S1_PS1_R8QPointerIS0_Eb + 0x135)\n\t0x7f6633a2b92a: QtGui.so.4 + 0x28e92a\n\t0x7f6633a2a62a: QtGui.so.4 + 0x28d62a (_ZN12QApplication15x11ProcessEventEP7_XEvent + 0xe2a)\n\t0x7f6633a55d62: QtGui.so.4 + 0x2b8d62\n\t0x7f662e43ecdb: glib-2.0.so.0 + 0x53cdb (g_main_context_dispatch + 0x26b)\n\t0x7f662e43ef88: glib-2.0.so.0 + 0x53f88\n\t0x7f662e43f03f: glib-2.0.so.0 + 0x5403f (g_main_context_iteration + 0x2f)\n\t0x7f664af0fab5: QtCore.so.4 + 0x1e8ab5 (_ZN20QEventDispatcherGlib13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE + 0x65)\n\t0x7f6633a5589f: QtGui.so.4 + 0x2b889f\n\t0x7f664aedba95: QtCore.so.4 + 0x1b4a95 (_ZN10QEventLoop13processEventsE6QFlagsINS_17ProcessEventsFlagEE + 0x35)\n\t0x7f664aedbe68: QtCore.so.4 + 0x1b4e68 (_ZN10QEventLoop4execE6QFlagsINS_17ProcessEventsFlagEE + 0x128)\n\t0x7f664aee0c84: QtCore.so.4 + 0x1b9c84 (_ZN16QCoreApplication4execEv + 0xb4)\n\t   0x401eab: quartus + 0x1eab (_Z8qgq_mainiPPKc + 0x7b)\n\t0x7f663718ae30: ccl_msg + 0x3ee30 (_Z15msg_main_threadPv + 0x10)\n\t0x7f6636851acc: ccl_thr + 0x5acc (thr_final_wrapper + 0xc)\n\t0x7f663718aeef: ccl_msg + 0x3eeef (_Z18msg_thread_wrapperPFPvS_ES_ + 0x62)\n\t0x7f66368c4f9c: ccl_mem + 0x9f9c (_Z18mem_thread_wrapperPFPvS_ES_ + 0x5c)\n\t0x7f6636891b39: ccl_err + 0x8b39 (_Z18err_thread_wrapperPFPvS_ES_ + 0x27)\n\t0x7f6636851b0f: ccl_thr + 0x5b0f (thr_thread_wrapper + 0x15)\n\t0x7f663718cea1: ccl_msg + 0x40ea1 (_Z12msg_exe_mainiPPKcPFiiS1_E + 0xb2)\n\t   0x401f91: quartus + 0x1f91 (main + 0x26)\n\t0x7f662eeb97fd: c.so.6 + 0x237fd (__libc_start_main + 0xcd)\n\t   0x401d39: quartus + 0x1d39\n",
+		"subsystem" : "WEDTQ"
+	},
+	"quartus" : {
+		"quartus_bits" : "64",
+		"version" : "20.1.0",
+		"build" : "711",
+		"edition" : "Lite Edition"
+	}
+}
