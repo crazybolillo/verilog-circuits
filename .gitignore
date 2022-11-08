@@ -40,3 +40,7 @@ db/
 _output_files/
 PLLJ_PLLSPE_INFO.txt
 */output_files/
+
+# Build/sim dirs
+*/work/
+transcript
